@@ -2,6 +2,10 @@
 
 A weather-prediction MCP server built with FastMCP, backed by the Open-Meteo API, wired to a Databricks Agent Bricks agent for natural-language weather queries. Based on the [Day 3 reference](https://github.com/EcZachly/databricks-lakebase-app-day-3) pattern.
 
+**Live MCP Server**: https://mcp-weather-server-7474645954729443.aws.databricksapps.com/
+
+**GitHub Repo**: https://github.com/manjuvallayil/weather-mcp-server
+
 ## Architecture
 
 ```
