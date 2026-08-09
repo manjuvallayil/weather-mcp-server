@@ -15,14 +15,7 @@ from fastmcp import FastMCP
 
 import weather_adapter as adapter
 
-mcp = FastMCP(
-    "Weather Prediction Server",
-    instructions=(
-        "This MCP server provides weather data and predictions via Open-Meteo. "
-        "Use get_current_weather for real-time conditions, get_forecast for multi-day "
-        "outlooks, and predict_umbrella_needed for rain recommendations."
-    ),
-)
+mcp = FastMCP("weather-prediction")
 
 
 @mcp.tool
@@ -152,4 +145,6 @@ def predict_umbrella_needed(location: str, date: str = "") -> dict:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)
+    import os
+    port = int(os.getenv("DATABRICKS_APP_PORT", os.getenv("PORT", 8000)))
+    mcp.run(transport="http", host="0.0.0.0", port=port)
